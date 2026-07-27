@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BelajarCoding · Materi Pemula</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fafc;
+      color: #0b1a33;
+      line-height: 1.6;
+      transition: background 0.4s ease, color 0.4s ease;
+      overflow-x: hidden;
+    }
+
+    body.dark-mode {
+      background: #0f0f1a;
+      color: #e2e8f0;
+    }
+
+    body.dark-mode .header {
+      background: #0a0a14;
+      border-bottom-color: #1a1a3a;
+    }
+
+    body.dark-mode .hero-materi {
+      background: #0f0f1a;
+    }
+
+    body.dark-mode .materi-card,
+    body.dark-mode .tool-card {
+      background: #1a1a2e;
+      border-color: #2a2a44;
+    }
+
+    body.dark-mode .materi-card p,
+    body.dark-mode .tool-card p {
+      color: #b0b8c8;
+    }
+
+    body.dark-mode .materi-card .materi-tag,
+    body.dark-mode .tool-card .tool-tag {
+      background: #2a2a4a;
+      color: #00e5ff;
+    }
+
+    body.dark-mode .materi-card .materi-icon,
+    body.dark-mode .tool-card .tool-icon {
+      background: rgba(0, 229, 255, 0.08);
+      color: #00e5ff;
+    }
+
+    body.dark-mode .materi-card .materi-badge,
+    body.dark-mode .tool-card .tool-badge {
+      background: #2a2a4a;
+      color: #00e5ff;
+    }
+
+    body.dark-mode .difficulty-badge.easy {
+      background: rgba(0, 229, 255, 0.15);
+      color: #00e5ff;
+    }
+    body.dark-mode .difficulty-badge.medium {
+      background: rgba(255, 193, 7, 0.15);
+      color: #ffc107;
+    }
+    body.dark-mode .difficulty-badge.hard {
+      background: rgba(255, 107, 107, 0.15);
+      color: #ff6b6b;
+    }
+    body.dark-mode .difficulty-badge.expert {
+      background: rgba(124, 77, 255, 0.15);
+      color: #7c4dff;
+    }
+
+    body.dark-mode .tools-section .section-label {
+      color: #e2e8f0;
+    }
+
+    body.dark-mode .tools-section .section-label i {
+      color: #00e5ff;
+    }
+
+    body.dark-mode .footer {
+      border-color: #2a2a44;
+      color: #8890a8;
+    }
+    body.dark-mode .footer .social a {
+      color: #8890a8;
+    }
+    body.dark-mode .footer .social a:hover {
+      color: #00e5ff;
+    }
+    body.dark-mode .footer span {
+      color: #e2e8f0 !important;
+    }
+
+    body.dark-mode .search-box input {
+      background: #1a1a2e;
+      border-color: #2a2a44;
+      color: #e2e8f0;
+    }
+
+    body.dark-mode .search-box input::placeholder {
+      color: #8890a8;
+    }
+
+    body.dark-mode .filter-btn {
+      background: #1a1a2e;
+      border-color: #2a2a44;
+      color: #b0b8c8;
+    }
+
+    body.dark-mode .filter-btn.active {
+      background: rgba(0, 229, 255, 0.15);
+      border-color: #00e5ff;
+      color: #00e5ff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      padding: 16px 0;
+      background: #0b0b0b;
+      border-bottom: 2px solid #1a1a2e;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+      transition: background 0.4s ease;
+    }
+
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .logo i {
+      font-size: 2rem;
+      color: #00e5ff;
+      text-shadow: 
+        0 0 7px #00e5ff,
+        0 0 10px #00e5ff,
+        0 0 21px #00e5ff,
+        0 0 42px #00e5ff,
+        0 0 82px #00e5ff,
+        0 0 92px #00e5ff,
+        0 0 102px #00e5ff,
+        0 0 151px #00e5ff;
+      animation: neonPulse 1.8s ease-in-out infinite alternate;
+      transition: all 0.3s;
+    }
+
+    .logo .text {
+      background: linear-gradient(135deg, #00e5ff, #7c4dff, #00e5ff);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmerText 3s ease-in-out infinite alternate;
+      text-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    @keyframes neonPulse {
+      0% {
+        text-shadow: 
+          0 0 7px #00e5ff,
+          0 0 10px #00e5ff,
+          0 0 21px #00e5ff,
+          0 0 42px #00e5ff,
+          0 0 82px #00e5ff,
+          0 0 92px #00e5ff,
+          0 0 102px #00e5ff,
+          0 0 151px #00e5ff;
+      }
+      100% {
+        text-shadow: 
+          0 0 5px #00e5ff,
+          0 0 8px #00e5ff,
+          0 0 15px #00e5ff,
+          0 0 30px #00e5ff,
+          0 0 60px #00e5ff,
+          0 0 70px #00e5ff,
+          0 0 80px #00e5ff,
+          0 0 120px #00e5ff;
+        transform: scale(1.02);
+      }
+    }
+
+    @keyframes shimmerText {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .logo::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -6px;
+      right: -6px;
+      bottom: -4px;
+      background: radial-gradient(circle at 30% 40%, rgba(0, 229, 255, 0.08) 0%, transparent 60%);
+      border-radius: 12px;
+      pointer-events: none;
+      animation: sparkFlicker 2.2s infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes sparkFlicker {
+      0% { opacity: 0.3; transform: scale(0.98); }
+      100% { opacity: 0.9; transform: scale(1.02); }
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: #00e5ff;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: 0.3s;
+      text-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+    }
+    .menu-toggle:hover {
+      color: #fff;
+      text-shadow: 0 0 20px #00e5ff, 0 0 40px #00e5ff;
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-weight: 500;
+      color: #c8d0dc;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      transition: 0.25s;
+      white-space: nowrap;
+      position: relative;
+    }
+    .nav-links a:hover {
+      color: #00e5ff;
+      text-shadow: 0 0 12px rgba(0, 229, 255, 0.5);
+    }
+
+    .btn-outline {
+      border: 1.5px solid #00e5ff;
+      padding: 8px 24px;
+      border-radius: 40px;
+      color: #00e5ff !important;
+      font-weight: 600;
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
+      transition: 0.3s;
+    }
+    .btn-outline:hover {
+      background: #00e5ff;
+      color: #0b0b0b !important;
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
+      transform: scale(1.04);
+    }
+
+    .dark-toggle-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: none;
+      border: none;
+      color: #c8d0dc;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 6px 0;
+      transition: 0.25s;
+      font-family: 'Inter', sans-serif;
+      width: 100%;
+    }
+    .dark-toggle-btn:hover {
+      color: #00e5ff;
+      text-shadow: 0 0 12px rgba(0, 229, 255, 0.5);
+    }
+    .dark-toggle-btn i {
+      font-size: 1.3rem;
+      width: 24px;
+      text-align: center;
+    }
+    .dark-toggle-btn .toggle-label {
+      flex: 1;
+      text-align: left;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 12px;
+        padding: 20px 0 12px;
+        border-top: 1px solid #1f1f3a;
+        margin-top: 12px;
+        background: #0b0b0b;
+        transition: background 0.4s ease;
+      }
+
+      body.dark-mode .nav-links {
+        background: #0a0a14;
+        border-top-color: #1a1a3a;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+        padding: 6px 0;
+        white-space: normal;
+        color: #c8d0dc;
+      }
+
+      .btn-outline {
+        border: none;
+        padding: 8px 0;
+        color: #00e5ff !important;
+        background: transparent;
+        box-shadow: none;
+      }
+      .btn-outline:hover {
+        background: transparent;
+        color: #fff !important;
+        box-shadow: none;
+        transform: none;
+      }
+
+      .dark-toggle-btn {
+        padding: 6px 0;
+        color: #c8d0dc;
+      }
+      .dark-toggle-btn:hover {
+        color: #00e5ff;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 1.4rem;
+      }
+      .logo i {
+        font-size: 1.6rem;
+      }
+      .logo .text {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* ===== SLIDE ON SCROLL ===== */
+    .scroll-slide {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+                  transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .scroll-slide.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-slide.delay-1 { transition-delay: 0.05s; }
+    .scroll-slide.delay-2 { transition-delay: 0.15s; }
+    .scroll-slide.delay-3 { transition-delay: 0.25s; }
+    .scroll-slide.delay-4 { transition-delay: 0.35s; }
+    .scroll-slide.delay-5 { transition-delay: 0.45s; }
+    .scroll-slide.delay-6 { transition-delay: 0.55s; }
+    .scroll-slide.delay-7 { transition-delay: 0.65s; }
+    .scroll-slide.delay-8 { transition-delay: 0.75s; }
+    .scroll-slide.delay-9 { transition-delay: 0.85s; }
+    .scroll-slide.delay-10 { transition-delay: 0.95s; }
+
+    /* ===== HERO MATERI ===== */
+    .hero-materi {
+      padding: 40px 0 30px;
+      background: #f9fafc;
+      transition: background 0.4s;
+    }
+
+    .hero-materi h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-materi h1 .highlight {
+      background: linear-gradient(135deg, #00e5ff, #7c4dff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-materi p {
+      text-align: center;
+      color: #8890a8;
+      max-width: 600px;
+      margin: 0 auto 32px;
+      font-size: 1.1rem;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #00e5ff;
+      border: 1.5px solid #00e5ff;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+
+    .btn-back:hover {
+      background: #00e5ff;
+      color: #0b0b0b;
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+    }
+
+    /* ===== SEARCH & FILTER ===== */
+    .search-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+      max-width: 400px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 20px 12px 48px;
+      border-radius: 40px;
+      border: 1.5px solid #e2e8f0;
+      background: #ffffff;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      transition: 0.3s;
+      outline: none;
+    }
+
+    .search-box input:focus {
+      border-color: #00e5ff;
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.08);
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #8890a8;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      padding: 10px 20px;
+      border-radius: 40px;
+      border: 1.5px solid #e2e8f0;
+      background: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: 'Inter', sans-serif;
+      color: #475569;
+    }
+
+    .filter-btn:hover {
+      border-color: #00e5ff;
+      color: #00e5ff;
+    }
+
+    .filter-btn.active {
+      background: rgba(0, 229, 255, 0.1);
+      border-color: #00e5ff;
+      color: #00e5ff;
+    }
+
+    /* ===== TOOLS SECTION ===== */
+    .tools-section {
+      padding: 20px 0 40px;
+    }
+
+    .tools-section .section-label {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0b1a33;
+      margin-bottom: 24px;
+    }
+
+    .tools-section .section-label i {
+      color: #00e5ff;
+      margin: 0 8px;
+    }
+
+    body.dark-mode .tools-section .section-label {
+      color: #e2e8f0;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    /* ===== TOOL CARD SAMA DENGAN MATERI CARD ===== */
+    .tool-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 24px;
+      border: 1px solid #f0f3f9;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-8px);
+      border-color: #00e5ff;
+      box-shadow: 0 12px 40px rgba(0, 229, 255, 0.06);
+    }
+
+    .tool-card .tool-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: rgba(0, 229, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #00e5ff;
+      margin-bottom: 16px;
+      transition: 0.3s;
+    }
+
+    .tool-card:hover .tool-icon {
+      background: rgba(0, 229, 255, 0.12);
+      transform: scale(1.05);
+    }
+
+    .tool-card .tool-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 12px;
+      border-radius: 30px;
+      background: #eef2ff;
+      color: #2563eb;
+    }
+
+    body.dark-mode .tool-card .tool-badge {
+      background: #2a2a4a;
+      color: #00e5ff;
+    }
+
+    .tool-card h4 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .tool-card p {
+      color: #64748b;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    body.dark-mode .tool-card p {
+      color: #b0b8c8;
+    }
+
+    .tool-card .tool-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .tool-card .tool-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 30px;
+      background: #eef2ff;
+      color: #2563eb;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark-mode .tool-card .tool-tag {
+      background: #2a2a4a;
+      color: #00e5ff;
+    }
+
+    .tool-start-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 8px 20px;
+      border-radius: 40px;
+      background: #00e5ff;
+      color: #0b0b0b;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .tool-start-btn:hover {
+      background: #66f0ff;
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+    }
+
+    body.dark-mode .tool-start-btn {
+      background: #00e5ff;
+      color: #0b0b0b;
+    }
+
+    body.dark-mode .tool-start-btn:hover {
+      background: #66f0ff;
+    }
+
+    /* ===== GRID MATERI ===== */
+    .materi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      padding-bottom: 40px;
+    }
+
+    .materi-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 24px;
+      border: 1px solid #f0f3f9;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .materi-card:hover {
+      transform: translateY(-8px);
+      border-color: #00e5ff;
+      box-shadow: 0 12px 40px rgba(0, 229, 255, 0.06);
+    }
+
+    .materi-card .materi-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: rgba(0, 229, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #00e5ff;
+      margin-bottom: 16px;
+      transition: 0.3s;
+    }
+
+    .materi-card:hover .materi-icon {
+      background: rgba(0, 229, 255, 0.12);
+      transform: scale(1.05);
+    }
+
+    .materi-card .materi-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 12px;
+      border-radius: 30px;
+      background: #eef2ff;
+      color: #2563eb;
+    }
+
+    body.dark-mode .materi-card .materi-badge {
+      background: #2a2a4a;
+      color: #00e5ff;
+    }
+
+    .materi-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .materi-card p {
+      color: #64748b;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    body.dark-mode .materi-card p {
+      color: #b0b8c8;
+    }
+
+    .materi-card .materi-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .difficulty-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 30px;
+    }
+
+    .difficulty-badge.easy {
+      background: rgba(0, 229, 255, 0.08);
+      color: #00e5ff;
+    }
+
+    .difficulty-badge.medium {
+      background: rgba(255, 193, 7, 0.12);
+      color: #f59e0b;
+    }
+
+    .difficulty-badge.hard {
+      background: rgba(255, 107, 107, 0.1);
+      color: #ef4444;
+    }
+
+    .difficulty-badge.expert {
+      background: rgba(124, 77, 255, 0.1);
+      color: #7c4dff;
+    }
+
+    .materi-card .materi-durasi {
+      font-size: 0.75rem;
+      color: #8890a8;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .materi-card .materi-durasi i {
+      font-size: 0.7rem;
+    }
+
+    .materi-card .materi-progress {
+      width: 100%;
+      height: 4px;
+      background: #eef2ff;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    .materi-card .materi-progress-bar {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #00e5ff, #7c4dff);
+      transition: width 0.6s ease;
+    }
+
+    .materi-card .materi-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .materi-card .materi-tag {
+      font-size: 0.7rem;
+      padding: 4px 12px;
+      border-radius: 30px;
+      background: #f8faff;
+      color: #64748b;
+      border: 1px solid #f0f3f9;
+      transition: 0.3s;
+    }
+
+    body.dark-mode .materi-card .materi-tag {
+      background: #12122a;
+      border-color: #2a2a44;
+      color: #8890a8;
+    }
+
+    .materi-card .materi-start-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 8px 20px;
+      border-radius: 40px;
+      background: #00e5ff;
+      color: #0b0b0b;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .materi-card .materi-start-btn:hover {
+      background: #66f0ff;
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+    }
+
+    body.dark-mode .materi-card .materi-start-btn {
+      background: #00e5ff;
+      color: #0b0b0b;
+    }
+
+    body.dark-mode .materi-card .materi-start-btn:hover {
+      background: #66f0ff;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      border-top: 1px solid #e2e8f0;
+      padding: 32px 0 24px;
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: #475569;
+      transition: border-color 0.4s, color 0.4s;
+    }
+    .footer .social a {
+      color: #475569;
+      margin-left: 20px;
+      font-size: 1.2rem;
+      transition: 0.2s;
+    }
+    .footer .social a:hover {
+      color: #2563eb;
+    }
+
+    body.dark-mode .footer {
+      border-color: #2a2a44;
+      color: #8890a8;
+    }
+    body.dark-mode .footer .social a {
+      color: #8890a8;
+    }
+    body.dark-mode .footer .social a:hover {
+      color: #00e5ff;
+    }
+    body.dark-mode .footer span {
+      color: #e2e8f0 !important;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      .hero-materi h1 {
+        font-size: 2rem;
+      }
+      .hero-materi p {
+        font-size: 1rem;
+      }
+      .materi-grid,
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+      .search-filter {
+        flex-direction: column;
+        align-items: center;
+      }
+      .search-box {
+        max-width: 100%;
+        width: 100%;
+      }
+      .filter-group {
+        justify-content: center;
+      }
+      .tools-section .section-label {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-materi h1 {
+        font-size: 1.6rem;
+      }
+      .materi-card,
+      .tool-card {
+        padding: 18px;
+      }
+      .materi-card h3,
+      .tool-card h4 {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <i class="fas fa-bolt"></i>
+      <span class="text">ZECTOCODE</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Beranda</a>
+      <a href="materi.html" style="color: #00e5ff;">Materi</a>
+      <a href="#">Komunitas</a>
+      <a href="#" class="btn-outline"><i class="fas fa-rocket"></i> Mulai</a>
+      <button class="dark-toggle-btn" id="darkModeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon" id="darkIcon"></i>
+        <span class="toggle-label" id="darkLabel">Mode Gelap</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== KONTEN UTAMA ===== -->
+<div class="container">
+
+  <!-- ===== HERO MATERI ===== -->
+  <section class="hero-materi">
+    <a href="index.html" class="btn-back scroll-slide delay-1">
+      <i class="fas fa-arrow-left"></i> Kembali
+    </a>
+  </section>
+
+  <!-- ===== TOOLS RECOMMENDATION ===== -->
+  <section class="tools-section">
+    <div class="section-label scroll-slide delay-1">
+      <i class="fas fa-tools"></i> Ratusan Tools untuk Coding <i class="fas fa-tools"></i>
+    </div>
+
+    <div class="tools-grid">
+      <!-- VS Code -->
+      <div class="tool-card scroll-slide delay-2">
+        <div class="tool-badge">WAJIB</div>
+        <div class="tool-icon"><i class="fas fa-code"></i></div>
+        <h4>VS Code</h4>
+        <p>Editor teks paling populer untuk coding. Ringan, banyak ekstensi, dan gratis!</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Editor Terbaik</span>
+          <span class="tool-tag">💻 Free</span>
+          <span class="tool-tag">🚀 Ringan</span>
+        </div>
+        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+      </div>
+
+      <!-- Git -->
+      <div class="tool-card scroll-slide delay-3">
+        <div class="tool-badge">WAJIB</div>
+        <div class="tool-icon"><i class="fab fa-git-alt"></i></div>
+        <h4>Git</h4>
+        <p>Version control system untuk menyimpan dan melacak perubahan kode-mu.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Version Control</span>
+          <span class="tool-tag">💻 Free</span>
+        </div>
+        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+      </div>
+
+      <!-- GitHub -->
+      <div class="tool-card scroll-slide delay-4">
+        <div class="tool-badge">WAJIB</div>
+        <div class="tool-icon"><i class="fab fa-github"></i></div>
+        <h4>GitHub</h4>
+        <p>Platform hosting kode. Tempat portofolio dan kolaborasi open source.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Platform</span>
+          <span class="tool-tag">🌐 Online</span>
+        </div>
+        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+      </div>
+
+      <!-- Chrome DevTools -->
+      <div class="tool-card scroll-slide delay-5">
+        <div class="tool-badge">WAJIB</div>
+        <div class="tool-icon"><i class="fab fa-chrome"></i></div>
+        <h4>Chrome DevTools</h4>
+        <p>Debug website langsung di browser. Inspeksi elemen, console, dan performance.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Debugging</span>
+          <span class="tool-tag">🌐 Built-in</span>
+        </div>
+        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+      </div>
+
+      <!-- Postman -->
+      <div class="tool-card scroll-slide delay-6">
+        <div class="tool-badge">WAJIB</div>
+        <div class="tool-icon"><i class="fas fa-paper-plane"></i></div>
+        <h4>Postman</h4>
+        <p>Testing API dengan mudah. Wajib untuk belajar backend dan integrasi.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ API Testing</span>
+          <span class="tool-tag">💻 Free</span>
+        </div>
+        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+      </div>
+
+      <!-- CodePen -->
+      <div class="tool-card scroll-slide delay-7">
+        <div class="tool-badge">GRATIS</div>
+        <div class="tool-icon"><i class="fas fa-pen-fancy"></i></div>
+        <h4>CodePen</h4>
+        <p>Playground HTML/CSS/JS di browser. Tanpa instalasi, langsung coba!</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Playground</span>
+          <span class="tool-tag">🌐 Online</span>
+        </div>
+        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+      </div>
+
+      <!-- DBeaver -->
+      <div class="tool-card scroll-slide delay-8">
+        <div class="tool-badge">GRATIS</div>
+        <div class="tool-icon"><i class="fas fa-database"></i></div>
+        <h4>DBeaver</h4>
+        <p>Database GUI untuk SQL. Mudah belajar query dan manajemen data.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Database</span>
+          <span class="tool-tag">💻 Free</span>
+        </div>
+        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+      </div>
+
+      <!-- Figma -->
+      <div class="tool-card scroll-slide delay-9">
+        <div class="tool-badge">GRATIS</div>
+        <div class="tool-icon"><i class="fas fa-paint-brush"></i></div>
+        <h4>Figma</h4>
+        <p>Desain UI/UX di browser. Buat mockup sebelum coding!</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Design</span>
+          <span class="tool-tag">🌐 Online</span>
+        </div>
+        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div>
+      <span style="font-weight: 600; color: #0b1a33; transition: color 0.4s;">BelajarCoding</span> &nbsp;·&nbsp; untuk pemula
+    </div>
+    <div class="social">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-discord"></i></a>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  (function() {
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('navLinks');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', function() {
+        nav.classList.toggle('open');
+        const icon = toggle.querySelector('i');
+        if (icon) {
+          if (nav.classList.contains('open')) {
+            icon.className = 'fas fa-times';
+          } else {
+            icon.className = 'fas fa-bars';
+          }
+        }
+      });
+    }
+
+    const darkToggle = document.getElementById('darkModeToggle');
+    const darkIcon = document.getElementById('darkIcon');
+    const darkLabel = document.getElementById('darkLabel');
+
+    let isDark = localStorage.getItem('darkMode') === 'true';
+
+    function applyDarkMode(dark) {
+      if (dark) {
+        document.body.classList.add('dark-mode');
+        if (darkIcon) {
+          darkIcon.className = 'fas fa-sun';
+        }
+        if (darkLabel) {
+          darkLabel.textContent = 'Mode Terang';
+        }
+      } else {
+        document.body.classList.remove('dark-mode');
+        if (darkIcon) {
+          darkIcon.className = 'fas fa-moon';
+        }
+        if (darkLabel) {
+          darkLabel.textContent = 'Mode Gelap';
+        }
+      }
+      localStorage.setItem('darkMode', String(dark));
+      isDark = dark;
+    }
+
+    applyDarkMode(isDark);
+
+    if (darkToggle) {
+      darkToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        applyDarkMode(!isDark);
+      });
+    }
+
+    document.addEventListener('click', function(e) {
+      if (nav && nav.classList.contains('open')) {
+        const isClickInside = nav.contains(e.target) || toggle.contains(e.target);
+        if (!isClickInside) {
+          nav.classList.remove('open');
+          const icon = toggle.querySelector('i');
+          if (icon) {
+            icon.className = 'fas fa-bars';
+          }
+        }
+      }
+    });
+
+    // ===== SLIDE ON SCROLL =====
+    const slideElements = document.querySelectorAll('.scroll-slide');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    slideElements.forEach(el => observer.observe(el));
+
+    // ===== SEARCH & FILTER =====
+    const searchInput = document.getElementById('searchInput');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const materiCards = document.querySelectorAll('.materi-card');
+
+    function filterMateri() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      const activeFilter = document.querySelector('.filter-btn.active');
+      const filterCategory = activeFilter ? activeFilter.dataset.filter : 'all';
+
+      materiCards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const desc = card.querySelector('p').textContent.toLowerCase();
+        const tags = card.querySelectorAll('.materi-tag');
+        let tagText = '';
+        tags.forEach(tag => { tagText += tag.textContent.toLowerCase(); });
+        const category = card.dataset.category || '';
+
+        const matchSearch = title.includes(searchTerm) || 
+                           desc.includes(searchTerm) || 
+                           tagText.includes(searchTerm);
+
+        const matchFilter = filterCategory === 'all' || category === filterCategory;
+
+        if (matchSearch && matchFilter) {
+          card.style.display = 'block';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 50);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 300);
+        }
+      });
+    }
+
+    searchInput.addEventListener('input', filterMateri);
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        filterMateri();
+      });
+    });
+
+    // ===== START BUTTON MATERI =====
+    const startButtons = document.querySelectorAll('.materi-start-btn');
+    startButtons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const card = this.closest('.materi-card');
+        const title = card.querySelector('h3').textContent;
+        alert('🎯 Memulai materi: ' + title + '\n\nSelamat belajar! Jangan lupa praktik ya 😊');
+      });
+    });
+
+    materiCards.forEach(card => {
+      card.addEventListener('click', function() {
+        const title = this.querySelector('h3').textContent;
+        alert('🎯 Memulai materi: ' + title + '\n\nSelamat belajar! Jangan lupa praktik ya 😊');
+      });
+    });
+
+    // ===== TOOL START BUTTONS =====
+    const toolStartBtns = document.querySelectorAll('.tool-start-btn');
+    toolStartBtns.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const card = this.closest('.tool-card');
+        const title = card.querySelector('h4').textContent;
+        alert('🎯 Memulai belajar tools: ' + title + '\n\nTools ini sangat berguna untuk pemula coding!');
+      });
+    });
+
+    const toolCards = document.querySelectorAll('.tool-card');
+    toolCards.forEach(card => {
+      card.addEventListener('click', function() {
+        const title = this.querySelector('h4').textContent;
+        alert('🛠️ ' + title + '\n\nTool yang wajib dikuasai oleh pemula coding!');
+      });
+    });
+
+  })();
+</script>
+
+</body>
+</html>
