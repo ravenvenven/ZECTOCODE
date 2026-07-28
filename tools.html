@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BelajarCoding · Materi Pemula</title>
+  <title>BelajarCoding · Tools Pemula</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
@@ -38,50 +38,28 @@
       background: #0f0f1a;
     }
 
-    body.dark-mode .materi-card,
     body.dark-mode .tool-card {
       background: #1a1a2e;
       border-color: #2a2a44;
     }
 
-    body.dark-mode .materi-card p,
     body.dark-mode .tool-card p {
       color: #b0b8c8;
     }
 
-    body.dark-mode .materi-card .materi-tag,
     body.dark-mode .tool-card .tool-tag {
       background: #2a2a4a;
       color: #00e5ff;
     }
 
-    body.dark-mode .materi-card .materi-icon,
     body.dark-mode .tool-card .tool-icon {
       background: rgba(0, 229, 255, 0.08);
       color: #00e5ff;
     }
 
-    body.dark-mode .materi-card .materi-badge,
     body.dark-mode .tool-card .tool-badge {
       background: #2a2a4a;
       color: #00e5ff;
-    }
-
-    body.dark-mode .difficulty-badge.easy {
-      background: rgba(0, 229, 255, 0.15);
-      color: #00e5ff;
-    }
-    body.dark-mode .difficulty-badge.medium {
-      background: rgba(255, 193, 7, 0.15);
-      color: #ffc107;
-    }
-    body.dark-mode .difficulty-badge.hard {
-      background: rgba(255, 107, 107, 0.15);
-      color: #ff6b6b;
-    }
-    body.dark-mode .difficulty-badge.expert {
-      background: rgba(124, 77, 255, 0.15);
-      color: #7c4dff;
     }
 
     body.dark-mode .tools-section .section-label {
@@ -278,6 +256,9 @@
     .nav-links a:hover {
       color: #00e5ff;
       text-shadow: 0 0 12px rgba(0, 229, 255, 0.5);
+    }
+    .nav-links a.active {
+      color: #00e5ff;
     }
 
     .btn-outline {
@@ -570,7 +551,7 @@
       gap: 24px;
     }
 
-    /* ===== TOOL CARD SAMA DENGAN MATERI CARD ===== */
+    /* ===== TOOL CARD ===== */
     .tool-card {
       background: #ffffff;
       border-radius: 24px;
@@ -579,6 +560,9 @@
       transition: all 0.3s ease;
       cursor: pointer;
       position: relative;
+      text-decoration: none;
+      display: block;
+      color: inherit;
     }
 
     .tool-card:hover {
@@ -680,6 +664,7 @@
       cursor: pointer;
       transition: 0.3s;
       font-family: 'Inter', sans-serif;
+      text-decoration: none;
     }
 
     .tool-start-btn:hover {
@@ -694,202 +679,6 @@
     }
 
     body.dark-mode .tool-start-btn:hover {
-      background: #66f0ff;
-    }
-
-    /* ===== GRID MATERI ===== */
-    .materi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
-      padding-bottom: 40px;
-    }
-
-    .materi-card {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 24px;
-      border: 1px solid #f0f3f9;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .materi-card:hover {
-      transform: translateY(-8px);
-      border-color: #00e5ff;
-      box-shadow: 0 12px 40px rgba(0, 229, 255, 0.06);
-    }
-
-    .materi-card .materi-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      background: rgba(0, 229, 255, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      color: #00e5ff;
-      margin-bottom: 16px;
-      transition: 0.3s;
-    }
-
-    .materi-card:hover .materi-icon {
-      background: rgba(0, 229, 255, 0.12);
-      transform: scale(1.05);
-    }
-
-    .materi-card .materi-badge {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 0.65rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 4px 12px;
-      border-radius: 30px;
-      background: #eef2ff;
-      color: #2563eb;
-    }
-
-    body.dark-mode .materi-card .materi-badge {
-      background: #2a2a4a;
-      color: #00e5ff;
-    }
-
-    .materi-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .materi-card p {
-      color: #64748b;
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-
-    body.dark-mode .materi-card p {
-      color: #b0b8c8;
-    }
-
-    .materi-card .materi-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .difficulty-badge {
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 4px 14px;
-      border-radius: 30px;
-    }
-
-    .difficulty-badge.easy {
-      background: rgba(0, 229, 255, 0.08);
-      color: #00e5ff;
-    }
-
-    .difficulty-badge.medium {
-      background: rgba(255, 193, 7, 0.12);
-      color: #f59e0b;
-    }
-
-    .difficulty-badge.hard {
-      background: rgba(255, 107, 107, 0.1);
-      color: #ef4444;
-    }
-
-    .difficulty-badge.expert {
-      background: rgba(124, 77, 255, 0.1);
-      color: #7c4dff;
-    }
-
-    .materi-card .materi-durasi {
-      font-size: 0.75rem;
-      color: #8890a8;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .materi-card .materi-durasi i {
-      font-size: 0.7rem;
-    }
-
-    .materi-card .materi-progress {
-      width: 100%;
-      height: 4px;
-      background: #eef2ff;
-      border-radius: 4px;
-      overflow: hidden;
-      margin-top: 4px;
-    }
-
-    .materi-card .materi-progress-bar {
-      height: 100%;
-      border-radius: 4px;
-      background: linear-gradient(90deg, #00e5ff, #7c4dff);
-      transition: width 0.6s ease;
-    }
-
-    .materi-card .materi-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 12px;
-    }
-
-    .materi-card .materi-tag {
-      font-size: 0.7rem;
-      padding: 4px 12px;
-      border-radius: 30px;
-      background: #f8faff;
-      color: #64748b;
-      border: 1px solid #f0f3f9;
-      transition: 0.3s;
-    }
-
-    body.dark-mode .materi-card .materi-tag {
-      background: #12122a;
-      border-color: #2a2a44;
-      color: #8890a8;
-    }
-
-    .materi-card .materi-start-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 14px;
-      padding: 8px 20px;
-      border-radius: 40px;
-      background: #00e5ff;
-      color: #0b0b0b;
-      font-weight: 600;
-      font-size: 0.85rem;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .materi-card .materi-start-btn:hover {
-      background: #66f0ff;
-      transform: scale(1.02);
-      box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
-    }
-
-    body.dark-mode .materi-card .materi-start-btn {
-      background: #00e5ff;
-      color: #0b0b0b;
-    }
-
-    body.dark-mode .materi-card .materi-start-btn:hover {
       background: #66f0ff;
     }
 
@@ -937,7 +726,6 @@
       .hero-materi p {
         font-size: 1rem;
       }
-      .materi-grid,
       .tools-grid {
         grid-template-columns: 1fr;
       }
@@ -961,11 +749,9 @@
       .hero-materi h1 {
         font-size: 1.6rem;
       }
-      .materi-card,
       .tool-card {
         padding: 18px;
       }
-      .materi-card h3,
       .tool-card h4 {
         font-size: 1rem;
       }
@@ -988,7 +774,8 @@
 
     <nav class="nav-links" id="navLinks">
       <a href="index.html">Beranda</a>
-      <a href="materi.html" style="color: #00e5ff;">Materi</a>
+      <a href="materi.html">Materi</a>
+      <a href="tools.html" class="active">Tools</a>
       <a href="#">Komunitas</a>
       <a href="#" class="btn-outline"><i class="fas fa-rocket"></i> Mulai</a>
       <button class="dark-toggle-btn" id="darkModeToggle" aria-label="Toggle dark mode">
@@ -1005,11 +792,37 @@
   <!-- ===== HERO MATERI ===== -->
   <section class="hero-materi">
     <a href="index.html" class="btn-back scroll-slide delay-1">
-      <i class="fas fa-arrow-left"></i> Kembali
+      <i class="fas fa-arrow-left"></i> Kembali ke Beranda
     </a>
+    <h1 class="scroll-slide delay-2">
+      🛠️ <span class="highlight">Tools</span> untuk Pemula
+    </h1>
+    <p class="scroll-slide delay-3">
+      Kumpulan tools terbaik yang wajib dikuasai oleh pemula coding!
+    </p>
+
+    <!-- Search & Filter -->
+    <div class="search-filter scroll-slide delay-4">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Cari tools...">
+      </div>
+      <div class="filter-group">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="editor">📝 Editor</button>
+        <button class="filter-btn" data-filter="version">🔀 Version Control</button>
+        <button class="filter-btn" data-filter="debug">🐛 Debugging</button>
+        <button class="filter-btn" data-filter="api">🔌 API</button>
+        <button class="filter-btn" data-filter="design">🎨 Design</button>
+        <button class="filter-btn" data-filter="database">🗄️ Database</button>
+        <button class="filter-btn" data-filter="deploy">🚀 Deploy</button>
+        <button class="filter-btn" data-filter="runtime">⚡ Runtime</button>
+        <button class="filter-btn" data-filter="container">📦 Container</button>
+      </div>
+    </div>
   </section>
 
-  <!-- ===== TOOLS RECOMMENDATION ===== -->
+  <!-- ===== TOOLS GRID ===== -->
   <section class="tools-section">
     <div class="section-label scroll-slide delay-1">
       <i class="fas fa-tools"></i> Ratusan Tools untuk Coding <i class="fas fa-tools"></i>
@@ -1017,7 +830,7 @@
 
     <div class="tools-grid">
       <!-- VS Code -->
-      <div class="tool-card scroll-slide delay-2">
+      <a href="vscode.html" class="tool-card scroll-slide delay-2" data-category="editor">
         <div class="tool-badge">WAJIB</div>
         <div class="tool-icon"><i class="fas fa-code"></i></div>
         <h4>VS Code</h4>
@@ -1027,11 +840,24 @@
           <span class="tool-tag">💻 Free</span>
           <span class="tool-tag">🚀 Ringan</span>
         </div>
-        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </a>
+
+      <!-- Sublime Text -->
+      <div class="tool-card scroll-slide delay-3" data-category="editor">
+        <div class="tool-badge">POPULER</div>
+        <div class="tool-icon"><i class="fas fa-pen-fancy"></i></div>
+        <h4>Sublime Text</h4>
+        <p>Editor teks cepat dan ringan. Cocok untuk coding dengan tampilan minimalis.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Cepat</span>
+          <span class="tool-tag">💻 Free Trial</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
       </div>
 
       <!-- Git -->
-      <div class="tool-card scroll-slide delay-3">
+      <div class="tool-card scroll-slide delay-4" data-category="version">
         <div class="tool-badge">WAJIB</div>
         <div class="tool-icon"><i class="fab fa-git-alt"></i></div>
         <h4>Git</h4>
@@ -1040,11 +866,11 @@
           <span class="tool-tag">⭐ Version Control</span>
           <span class="tool-tag">💻 Free</span>
         </div>
-        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
       </div>
 
       <!-- GitHub -->
-      <div class="tool-card scroll-slide delay-4">
+      <div class="tool-card scroll-slide delay-5" data-category="version">
         <div class="tool-badge">WAJIB</div>
         <div class="tool-icon"><i class="fab fa-github"></i></div>
         <h4>GitHub</h4>
@@ -1053,11 +879,24 @@
           <span class="tool-tag">⭐ Platform</span>
           <span class="tool-tag">🌐 Online</span>
         </div>
-        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- GitLab -->
+      <div class="tool-card scroll-slide delay-6" data-category="version">
+        <div class="tool-badge">ALTERNATIF</div>
+        <div class="tool-icon"><i class="fab fa-gitlab"></i></div>
+        <h4>GitLab</h4>
+        <p>Platform DevOps lengkap. CI/CD, repository, dan project management.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ DevOps</span>
+          <span class="tool-tag">🌐 Online</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
       </div>
 
       <!-- Chrome DevTools -->
-      <div class="tool-card scroll-slide delay-5">
+      <div class="tool-card scroll-slide delay-7" data-category="debug">
         <div class="tool-badge">WAJIB</div>
         <div class="tool-icon"><i class="fab fa-chrome"></i></div>
         <h4>Chrome DevTools</h4>
@@ -1066,11 +905,24 @@
           <span class="tool-tag">⭐ Debugging</span>
           <span class="tool-tag">🌐 Built-in</span>
         </div>
-        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- Firefox DevTools -->
+      <div class="tool-card scroll-slide delay-8" data-category="debug">
+        <div class="tool-badge">ALTERNATIF</div>
+        <div class="tool-icon"><i class="fab fa-firefox"></i></div>
+        <h4>Firefox DevTools</h4>
+        <p>Debug website dengan Firefox. Fitur lengkap untuk CSS dan responsive design.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Debugging</span>
+          <span class="tool-tag">🌐 Built-in</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
       </div>
 
       <!-- Postman -->
-      <div class="tool-card scroll-slide delay-6">
+      <div class="tool-card scroll-slide delay-9" data-category="api">
         <div class="tool-badge">WAJIB</div>
         <div class="tool-icon"><i class="fas fa-paper-plane"></i></div>
         <h4>Postman</h4>
@@ -1079,11 +931,24 @@
           <span class="tool-tag">⭐ API Testing</span>
           <span class="tool-tag">💻 Free</span>
         </div>
-        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- Insomnia -->
+      <div class="tool-card scroll-slide delay-10" data-category="api">
+        <div class="tool-badge">ALTERNATIF</div>
+        <div class="tool-icon"><i class="fas fa-cloud"></i></div>
+        <h4>Insomnia</h4>
+        <p>API client yang ringan dan powerful. Alternatif Postman yang lebih sederhana.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ API Client</span>
+          <span class="tool-tag">💻 Free</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
       </div>
 
       <!-- CodePen -->
-      <div class="tool-card scroll-slide delay-7">
+      <div class="tool-card scroll-slide delay-11" data-category="editor">
         <div class="tool-badge">GRATIS</div>
         <div class="tool-icon"><i class="fas fa-pen-fancy"></i></div>
         <h4>CodePen</h4>
@@ -1092,11 +957,24 @@
           <span class="tool-tag">⭐ Playground</span>
           <span class="tool-tag">🌐 Online</span>
         </div>
-        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- JSFiddle -->
+      <div class="tool-card scroll-slide delay-12" data-category="editor">
+        <div class="tool-badge">GRATIS</div>
+        <div class="tool-icon"><i class="fas fa-code"></i></div>
+        <h4>JSFiddle</h4>
+        <p>Playground untuk HTML, CSS, dan JavaScript. Cocok untuk berbagi kode.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Playground</span>
+          <span class="tool-tag">🌐 Online</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
       </div>
 
       <!-- DBeaver -->
-      <div class="tool-card scroll-slide delay-8">
+      <div class="tool-card scroll-slide delay-13" data-category="database">
         <div class="tool-badge">GRATIS</div>
         <div class="tool-icon"><i class="fas fa-database"></i></div>
         <h4>DBeaver</h4>
@@ -1105,11 +983,24 @@
           <span class="tool-tag">⭐ Database</span>
           <span class="tool-tag">💻 Free</span>
         </div>
-        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- MySQL Workbench -->
+      <div class="tool-card scroll-slide delay-14" data-category="database">
+        <div class="tool-badge">POPULER</div>
+        <div class="tool-icon"><i class="fas fa-database"></i></div>
+        <h4>MySQL Workbench</h4>
+        <p>GUI untuk database MySQL. Design, query, dan manage database.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Database</span>
+          <span class="tool-tag">💻 Free</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
       </div>
 
       <!-- Figma -->
-      <div class="tool-card scroll-slide delay-9">
+      <div class="tool-card scroll-slide delay-15" data-category="design">
         <div class="tool-badge">GRATIS</div>
         <div class="tool-icon"><i class="fas fa-paint-brush"></i></div>
         <h4>Figma</h4>
@@ -1118,16 +1009,161 @@
           <span class="tool-tag">⭐ Design</span>
           <span class="tool-tag">🌐 Online</span>
         </div>
-        <button class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</button>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- Adobe XD -->
+      <div class="tool-card scroll-slide delay-16" data-category="design">
+        <div class="tool-badge">ALTERNATIF</div>
+        <div class="tool-icon"><i class="fas fa-vector-square"></i></div>
+        <h4>Adobe XD</h4>
+        <p>Desain UI/UX dari Adobe. Integrasi dengan ekosistem Adobe.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Design</span>
+          <span class="tool-tag">💻 Free</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- Node.js -->
+      <div class="tool-card scroll-slide delay-17" data-category="runtime">
+        <div class="tool-badge">WAJIB</div>
+        <div class="tool-icon"><i class="fab fa-node-js"></i></div>
+        <h4>Node.js</h4>
+        <p>Runtime JavaScript di server. Untuk membuat backend aplikasi web.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Runtime</span>
+          <span class="tool-tag">💻 Free</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- Deno -->
+      <div class="tool-card scroll-slide delay-18" data-category="runtime">
+        <div class="tool-badge">MODERN</div>
+        <div class="tool-icon"><i class="fas fa-code"></i></div>
+        <h4>Deno</h4>
+        <p>Runtime JavaScript/TypeScript modern. Dibuat oleh creator Node.js.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Runtime</span>
+          <span class="tool-tag">💻 Free</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- Docker -->
+      <div class="tool-card scroll-slide delay-2" data-category="container">
+        <div class="tool-badge">WAJIB</div>
+        <div class="tool-icon"><i class="fab fa-docker"></i></div>
+        <h4>Docker</h4>
+        <p>Containerization untuk deploy aplikasi. Standar industri saat ini.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Container</span>
+          <span class="tool-tag">💻 Free</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- Kubernetes -->
+      <div class="tool-card scroll-slide delay-3" data-category="container">
+        <div class="tool-badge">EXPERT</div>
+        <div class="tool-icon"><i class="fas fa-rocket"></i></div>
+        <h4>Kubernetes</h4>
+        <p>Orchestration container untuk deploy aplikasi skala besar.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Orchestration</span>
+          <span class="tool-tag">💻 Free</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- Vercel -->
+      <div class="tool-card scroll-slide delay-4" data-category="deploy">
+        <div class="tool-badge">GRATIS</div>
+        <div class="tool-icon"><i class="fas fa-cloud"></i></div>
+        <h4>Vercel</h4>
+        <p>Platform deploy untuk frontend. Gratis dan mudah digunakan.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Deploy</span>
+          <span class="tool-tag">🌐 Online</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- Netlify -->
+      <div class="tool-card scroll-slide delay-5" data-category="deploy">
+        <div class="tool-badge">GRATIS</div>
+        <div class="tool-icon"><i class="fas fa-globe"></i></div>
+        <h4>Netlify</h4>
+        <p>Platform deploy untuk static site. Mudah dan cepat.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Deploy</span>
+          <span class="tool-tag">🌐 Online</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- Firebase -->
+      <div class="tool-card scroll-slide delay-6" data-category="deploy">
+        <div class="tool-badge">GRATIS</div>
+        <div class="tool-icon"><i class="fas fa-fire"></i></div>
+        <h4>Firebase</h4>
+        <p>Platform backend dari Google. Hosting, database, dan authentication.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Backend</span>
+          <span class="tool-tag">🌐 Online</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- Heroku -->
+      <div class="tool-card scroll-slide delay-7" data-category="deploy">
+        <div class="tool-badge">POPULER</div>
+        <div class="tool-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+        <h4>Heroku</h4>
+        <p>Platform deploy untuk berbagai bahasa pemrograman. Mudah dan cepat.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ Deploy</span>
+          <span class="tool-tag">🌐 Online</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- Tailwind CSS -->
+      <div class="tool-card scroll-slide delay-8" data-category="editor">
+        <div class="tool-badge">POPULER</div>
+        <div class="tool-icon"><i class="fas fa-wind"></i></div>
+        <h4>Tailwind CSS</h4>
+        <p>Framework CSS utility-first. Membuat styling lebih cepat dan konsisten.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ CSS Framework</span>
+          <span class="tool-tag">💻 Free</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
+      </div>
+
+      <!-- Bootstrap -->
+      <div class="tool-card scroll-slide delay-9" data-category="editor">
+        <div class="tool-badge">KLASIK</div>
+        <div class="tool-icon"><i class="fab fa-bootstrap"></i></div>
+        <h4>Bootstrap</h4>
+        <p>Framework CSS paling populer. Membuat website responsif dengan cepat.</p>
+        <div class="tool-meta">
+          <span class="tool-tag">⭐ CSS Framework</span>
+          <span class="tool-tag">💻 Free</span>
+        </div>
+        <span class="tool-start-btn"><i class="fas fa-play"></i> Mulai Belajar</span>
       </div>
     </div>
   </section>
 
+</div>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
     <div>
-      <span style="font-weight: 600; color: #0b1a33; transition: color 0.4s;">BelajarCoding</span> &nbsp;·&nbsp; untuk pemula
+      <span style="font-weight: 600; color: #0b1a33; transition: color 0.4s;">ZECTOCODE</span> &nbsp;·&nbsp; untuk pemula
     </div>
     <div class="social">
       <a href="#"><i class="fab fa-github"></i></a>
@@ -1135,9 +1171,8 @@
       <a href="#"><i class="fab fa-youtube"></i></a>
       <a href="#"><i class="fab fa-discord"></i></a>
     </div>
-  </footer>
-
-</div>
+  </div>
+</footer>
 
 <!-- ===== JAVASCRIPT ===== -->
 <script>
@@ -1228,17 +1263,17 @@
     // ===== SEARCH & FILTER =====
     const searchInput = document.getElementById('searchInput');
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const materiCards = document.querySelectorAll('.materi-card');
+    const toolCards = document.querySelectorAll('.tool-card');
 
-    function filterMateri() {
+    function filterTools() {
       const searchTerm = searchInput.value.toLowerCase().trim();
       const activeFilter = document.querySelector('.filter-btn.active');
       const filterCategory = activeFilter ? activeFilter.dataset.filter : 'all';
 
-      materiCards.forEach(card => {
-        const title = card.querySelector('h3').textContent.toLowerCase();
+      toolCards.forEach(card => {
+        const title = card.querySelector('h4').textContent.toLowerCase();
         const desc = card.querySelector('p').textContent.toLowerCase();
-        const tags = card.querySelectorAll('.materi-tag');
+        const tags = card.querySelectorAll('.tool-tag');
         let tagText = '';
         tags.forEach(tag => { tagText += tag.textContent.toLowerCase(); });
         const category = card.dataset.category || '';
@@ -1265,50 +1300,13 @@
       });
     }
 
-    searchInput.addEventListener('input', filterMateri);
+    searchInput.addEventListener('input', filterTools);
 
     filterButtons.forEach(btn => {
       btn.addEventListener('click', function() {
         filterButtons.forEach(b => b.classList.remove('active'));
         this.classList.add('active');
-        filterMateri();
-      });
-    });
-
-    // ===== START BUTTON MATERI =====
-    const startButtons = document.querySelectorAll('.materi-start-btn');
-    startButtons.forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const card = this.closest('.materi-card');
-        const title = card.querySelector('h3').textContent;
-        alert('🎯 Memulai materi: ' + title + '\n\nSelamat belajar! Jangan lupa praktik ya 😊');
-      });
-    });
-
-    materiCards.forEach(card => {
-      card.addEventListener('click', function() {
-        const title = this.querySelector('h3').textContent;
-        alert('🎯 Memulai materi: ' + title + '\n\nSelamat belajar! Jangan lupa praktik ya 😊');
-      });
-    });
-
-    // ===== TOOL START BUTTONS =====
-    const toolStartBtns = document.querySelectorAll('.tool-start-btn');
-    toolStartBtns.forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const card = this.closest('.tool-card');
-        const title = card.querySelector('h4').textContent;
-        alert('🎯 Memulai belajar tools: ' + title + '\n\nTools ini sangat berguna untuk pemula coding!');
-      });
-    });
-
-    const toolCards = document.querySelectorAll('.tool-card');
-    toolCards.forEach(card => {
-      card.addEventListener('click', function() {
-        const title = this.querySelector('h4').textContent;
-        alert('🛠️ ' + title + '\n\nTool yang wajib dikuasai oleh pemula coding!');
+        filterTools();
       });
     });
 
